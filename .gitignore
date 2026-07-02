@@ -1,0 +1,12 @@
+# Enunciado do exercício — não versionar
+instrucoes.md
+
+# Configuração local do Claude Code
+.claude/
+
+# Artefatos de build C++
+build/
+*.o
+*.obj
+*.out
+a.out
