@@ -5,6 +5,7 @@
 #include "../alerta.hpp"
 
 // Severidade sempre 2.
+// Regra do zero: só membros de valor, sem membros especiais declarados.
 class alerta_aviso : public alerta {
     std::string mensagem_;
 

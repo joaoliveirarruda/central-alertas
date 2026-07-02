@@ -6,6 +6,7 @@
 #include "alerta.hpp"
 
 // Gerencia os alertas via polimorfismo dinâmico.
+// Regra do zero: o vector<unique_ptr> torna a central move-only automaticamente.
 class central {
     std::vector<std::unique_ptr<alerta>> alertas_;
 

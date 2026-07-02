@@ -5,6 +5,7 @@
 #include "../alerta.hpp"
 
 // Severidade sempre 3. Marcada como final: não pode ser estendida.
+// Regra do zero: só membros de valor, sem membros especiais declarados.
 class alerta_critico final : public alerta {
     std::string mensagem_;
 

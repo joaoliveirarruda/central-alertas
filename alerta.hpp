@@ -7,6 +7,16 @@ class formatavel {
 public:
     [[nodiscard]] virtual std::string formatar() const = 0;
     virtual ~formatavel() = default;
+
+protected:
+    // Regra dos cinco explícita (C++ Core Guidelines C.67): copy/move
+    // protegidos evitam object slicing pela base polimórfica, mas permitem
+    // que as classes derivadas os defaultem normalmente.
+    formatavel() = default;
+    formatavel(const formatavel&) = default;
+    formatavel& operator=(const formatavel&) = default;
+    formatavel(formatavel&&) = default;
+    formatavel& operator=(formatavel&&) = default;
 };
 
 // Classe abstrata: tem estado e implementa o Template Method exibir().
@@ -28,4 +38,12 @@ public:
     [[nodiscard]] int severidade() const noexcept;
 
     ~alerta() override = default;
+
+protected:
+    // Regra dos cinco explícita: copy/move protegidos impedem slicing por
+    // alerta&, preservando a semântica de valor apenas para as derivadas.
+    alerta(const alerta&) = default;
+    alerta& operator=(const alerta&) = default;
+    alerta(alerta&&) = default;
+    alerta& operator=(alerta&&) = default;
 };
